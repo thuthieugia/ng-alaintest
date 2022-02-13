@@ -1,0 +1,34 @@
+<h1>List Student </h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-4">Thêm</a>
+<table class="table w-100 table-striped" border="1">
+  <thead>
+    <tr>
+      <th>Name </th>
+      <th>Password</th>
+      <th>favorite music </th>
+      <th>Phone</th>
+
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.password }}</td>
+      <td>{{ student.favoritemusic }}</td>
+      <td>{{ student.phone }}</td>
+      <td style="white-space: nowrap">
+        <a routerLink="edit/{{ student.id }}" class="btn btn-sm btn-primary mr-1">Edit</a>
+        <button (click)="delete(student.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="student.isDeleting">
+          <span *ngIf="student.isDeleting" class="spinner-border spinner-border-sm"></span>
+          <span *ngIf="!student.isDeleting">Delete</span>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="!students">
+      <td colspan="4" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
