@@ -7,8 +7,8 @@
   }
 </style>
 
-<h1 *ngIf="isAddMode">Thêm model máy tính </h1>
-<h1 *ngIf="!isAddMode">Sửa model máy tính </h1>
+<h1 *ngIf="isAddMode">add student </h1>
+<h1 *ngIf="!isAddMode">Sửa student </h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-width">
   <div class="form-row">
     <div class="form-group row">
